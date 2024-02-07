@@ -1,0 +1,113 @@
+<div class="container col-4">
+  <h3 class="text-center mb-3 fs-title">Add New Product!</h3>
+  <div class="card mt-5">
+    <div class="card-body">
+      <form #productForm="ngForm" (ngSubmit)="addProduct()">
+        <div class="alert alert-danger" [hidden]="!error.errorMessage">
+          {{ error.errorMessage }}
+        </div>
+        <div class="row mb-3 mt-2">
+          <div class="col-sm-12">
+            <input
+              type="file"
+              class="form-control form-control-lg"
+              id="inputImage"
+              [(ngModel)]="product.image"
+              name="image"
+              (change)="uploadFile($event)"
+              accept="image/*"
+              required
+            />
+          </div>
+        </div>
+        <div class="row mb-3 mt-2">
+          <label
+            for="inputCategory"
+            class="col-sm-12 col-form-label col-form-label-lg"
+            >Category</label
+          >
+          <div class="col-sm-12">
+            <select
+              name="category"
+              id=""
+              [(ngModel)]="categoryId"
+              class="form-control form-control-lg"
+              required
+            >
+              <option
+                *ngFor="let category of categories"
+                [value]="category.id"
+              >
+                {{ category.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="row mb-3 mt-2">
+          <label
+            for="inputName"
+            class="col-sm-12 col-form-label col-form-label-lg"
+            >Name</label
+          >
+          <div class="col-sm-12">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              id="inputName"
+              [(ngModel)]="product.name"
+              name="name"
+              required
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label
+            for="inputDescription"
+            class="col-sm-12 col-form-label col-form-label-lg"
+            >Description</label
+          >
+          <div class="col-sm-12">
+            <textarea
+              rows="5"
+              cols="5"
+              name="description"
+              id="inputDescription"
+              [(ngModel)]="product.description"
+              placeholder="Description"
+              class="form-control form-control-lg"
+              required
+            ></textarea>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label
+            for="inputPrice"
+            class="col-sm-12 col-form-label col-form-label-lg"
+            >Price</label
+          >
+          <div class="col-sm-12">
+            <input
+              type="number"
+              name="price"
+              id="inputPrice"
+              [(ngModel)]="product.price"
+              placeholder="Price"
+              class="form-control form-control-lg"
+              required
+            />
+          </div>
+        </div>
+        <div class="row mx-1 mt-5">
+          <button
+            type="submit"
+            class="btn btn-lg mx-auto"
+            [disabled]="!productForm.valid"
+            style="background: #ca1515"
+          >
+            Add Product
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

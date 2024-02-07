@@ -1,0 +1,156 @@
+<div
+  class="offcanvas-menu-overlay"
+  (click)="toggleMenu()"
+  [class.active]="isMenuActive"
+></div>
+<div class="offcanvas-menu-wrapper" [class.active]="isMenuActive">
+  <div class="offcanvas__close" (click)="toggleMenu()">
+    <i class="bi bi-x-circle"></i>
+  </div>
+  <ul class="offcanvas__widget">
+    <li>
+      <span class="search-switch"><i class="bi bi-search"></i></span>
+    </li>
+    <li>
+      <a href="#"
+        ><i class="bi bi-heart"></i>
+        <div class="tip">2</div>
+      </a>
+    </li>
+  </ul>
+  <div class="offcanvas__logo">
+    <a routerLink=""><img src="../../../assets/images/logo.png" alt="" /></a>
+  </div>
+  <div id="mobile-menu-wrap">
+    <nav class="header__menu_collapsed">
+      <ul>
+        <li>
+          <a routerLink="dashboard" routerLinkActive="active" *ngIf="loggedIn"
+            >Dashboard</a
+          >
+        </li>
+        <li>
+          <a routerLink="products" routerLinkActive="active" *ngIf="loggedIn"
+            >Products</a
+          >
+        </li>
+        <li *ngIf="loggedIn">
+          <a routerLink="categories">Categories</a>
+        </li>
+        <li *ngIf="loggedIn && userLoggedIn">
+          <a routerLink="cart" routerLinkActive="active">Cart</a>
+        </li>
+        <li *ngIf="loggedIn && userLoggedIn">
+          <a routerLink="my-orders">My Orders</a>
+        </li>
+
+        <li *ngIf="loggedIn && adminLoggedIn">
+          <a routerLink="orders">Orders</a>
+        </li>
+        <li *ngIf="loggedIn && adminLoggedIn">
+          <a routerLink="users">Users</a>
+        </li>
+        <li *ngIf="loggedIn && userLoggedIn">
+          <a routerLink="my-profile">My Profile</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="offcanvas__auth">
+    <a routerLink="login" *ngIf="!loggedIn">Login</a>
+    <a routerLink="signup" *ngIf="!loggedIn">Register</a>
+    <a class="nav-link" href="#" (click)="logout($event)" *ngIf="loggedIn"
+      ><i class="bi bi-box-arrow-right me-1"></i>Logout</a
+    >
+  </div>
+</div>
+
+<header class="header px-4">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-3 col-lg-2">
+        <div class="header__logo">
+          <a routerLink=""
+            ><img src="../../../assets/images/logo.png" alt=""
+          /></a>
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-7">
+        <nav class="header__menu">
+          <ul>
+            <!-- <li><a routerLink="" routerLinkActive="active">Home</a></li> -->
+            <li>
+              <a
+                routerLink="dashboard"
+                routerLinkActive="active"
+                *ngIf="loggedIn"
+                >Dashboard</a
+              >
+            </li>
+            <li>
+              <a
+                routerLink="products"
+                routerLinkActive="active"
+                *ngIf="loggedIn"
+                >Products</a
+              >
+            </li>
+            <li *ngIf="loggedIn">
+              <a routerLink="categories">Categories</a>
+            </li>
+            <li *ngIf="loggedIn && userLoggedIn">
+              <a routerLink="cart" routerLinkActive="active">Cart</a>
+            </li>
+            <li *ngIf="loggedIn && userLoggedIn">
+              <a routerLink="my-orders">My Orders</a>
+            </li>
+
+            <!--<li>
+              <a href="#">Pages</a>
+              <ul class="dropdown">
+                <li><a href="./shop-cart.html">Shop Cart</a></li>
+                <li><a href="./checkout.html">Checkout</a></li>
+              </ul>
+            </li>-->
+            <li *ngIf="loggedIn && adminLoggedIn">
+              <a routerLink="orders">Orders</a>
+            </li>
+            <li *ngIf="loggedIn && adminLoggedIn">
+              <a routerLink="users">Users</a>
+            </li>
+            <li *ngIf="loggedIn && userLoggedIn">
+              <a routerLink="my-profile">My Profile</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-lg-3">
+        <div class="header__right">
+          <div class="header__right__auth">
+            <a routerLink="login" *ngIf="!loggedIn">Login</a>
+            <a routerLink="signup" *ngIf="!loggedIn">Register</a>
+            <a
+              class="nav-link"
+              href="#"
+              (click)="logout($event)"
+              *ngIf="loggedIn"
+              ><i class="bi bi-box-arrow-right me-1"></i>Logout</a
+            >
+          </div>
+          <ul class="header__right__widget">
+            <li><i class="bi bi-search"></i></li>
+            <li>
+              <a href="#"
+                ><i class="bi bi-heart"></i>
+                <div class="tip">2</div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="canvas__open" (click)="toggleMenu()">
+      <i class="bi bi-list"></i>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,116 @@
+<div class="container col-4">
+  <h3 class="text-center mb-3 fs-title">Sign Up</h3>
+  <div class="card mt-5">
+    <div class="card-body">
+      <form #signUpForm="ngForm" (ngSubmit)="signUp()">
+        <!-- <div class="alert alert-danger" [hidden]="!error">
+          {{ error }}
+        </div> -->
+        <div class="row mb-3 mt-2">
+          <label
+            for="inputUsername"
+            class="col-sm-12 col-form-label col-form-label-lg"
+            >Username</label
+          >
+          <div class="col-sm-12">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              id="inputUsername"
+              [(ngModel)]="user.username"
+              name="username"
+              placeholder="Username"
+              required
+            />
+          </div>
+        </div>
+        <div class="row mb-3 mt-2">
+          <label
+            for="inputEmail"
+            class="col-sm-12 col-form-label col-form-label-lg"
+            >Email</label
+          >
+          <div class="col-sm-12">
+            <input
+              type="email"
+              class="form-control form-control-lg"
+              id="inputEmail"
+              [(ngModel)]="user.email"
+              name="email"
+              required
+              placeholder="Email"
+            />
+            <div class="alert alert-danger" [hidden]="!error.email">
+              <span style="font-size: small">{{ error.email }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label
+            for="inputPassword"
+            class="col-sm-12 col-form-label col-form-label-lg"
+            >Password</label
+          >
+          <div class="col-sm-12">
+            <input
+              id="inputPassword"
+              type="password"
+              class="form-control form-control-lg"
+              id="inputPassword"
+              [(ngModel)]="user.password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+        </div>
+         <div class="alert alert-danger row-sm-12" [hidden]="!error.password">
+            <span style="font-size: small">{{ error.password }}</span>
+          </div>
+        <div class="row mb-3">
+          <label
+            for="inputCoPassword"
+            class="col-sm-12 col-form-label col-form-label-lg"
+            >Confirm Password</label
+          >
+          <div class="col-sm-12">
+            <input
+              id="inputCoPassword"
+              class="form-control mb-2 form-control-lg"
+              type="password"
+              name="password-repeat"
+              placeholder="Password (repeat)"
+              required
+              [(ngModel)]="user.matchingPassword"
+            />
+          </div>
+        </div>
+        <div class="alert alert-danger col-sm-12" [hidden]="!error.matchingPassword">
+          <span style="font-size: small">{{ error.matchingPassword }}</span>
+        </div>
+        <div class="row mx-1 mt-5">
+          <button
+            type="submit"
+            class="btn btn-lg mx-auto"
+            [disabled]="!signUpForm.valid"
+            style="background: #ca1515"
+          >
+            Sign Up
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="mt-5 text-center">
+    <div>
+      Have an account?
+      <a
+        (click)="toSignIn()"
+        style="text-decoration: none"
+        class="btn"
+        style="color: #ca1515"
+        >Sign In</a
+      >
+    </div>
+  </div>
+</div>

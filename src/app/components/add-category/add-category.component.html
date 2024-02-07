@@ -1,0 +1,58 @@
+<div class="container col-4">
+  <h3 class="text-center mb-3 fs-title">Add New Category!</h3>
+  <div class="card mt-5">
+    <div class="card-body">
+      <form #categoryForm="ngForm" (ngSubmit)="addCategory()">
+        <div class="alert alert-danger" [hidden]="!error?.errorMessage">
+          {{ error.errorMessage }}
+        </div>
+        <div class="row mb-3 mt-2">
+          <label
+            for="inputName"
+            class="col-sm-12 col-form-label col-form-label-lg"
+            >Name</label
+          >
+          <div class="col-sm-12">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              id="inputName"
+              [(ngModel)]="category.name"
+              name="name"
+              required
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label
+            for="inputDescription"
+            class="col-sm-12 col-form-label col-form-label-lg"
+            >Description</label
+          >
+          <div class="col-sm-12">
+            <textarea
+              rows="5"
+              cols="5"
+              name="description"
+              id="inputDescription"
+              [(ngModel)]="category.description"
+              placeholder="Description"
+              class="form-control form-control-lg"
+              required
+            ></textarea>
+          </div>
+        </div>
+        <div class="row mx-1 mt-5">
+          <button
+            type="submit"
+            class="btn btn-lg mx-auto"
+            [disabled]="!categoryForm.valid"
+            style="background: #ca1515"
+          >
+            Add Category
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

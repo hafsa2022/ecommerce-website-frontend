@@ -1,0 +1,27 @@
+.fs-title {
+  font-size: 18px;
+  text-transform: uppercase;
+  color: black;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+input:focus {
+  box-shadow: none !important;
+  border: 1px solid #ca1515;
+  outline-width: 0;
+  transition: All 0.5s ease-in;
+}
+
+input {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: montserrat;
+  color: #2c3e50;
+  font-size: 13px;
+}
