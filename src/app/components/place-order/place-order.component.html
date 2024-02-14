@@ -1,0 +1,82 @@
+<div class="container col-4">
+  <h3 class="text-center mb-3 fs-title">Order Details</h3>
+  <div class="card mt-5">
+    <div class="card-body">
+      <form [formGroup]="placeOrderForm">
+        <!-- <div class="alert alert-danger" [hidden]="!error.errorMessage">
+          {{ error.errorMessage }}
+        </div> -->
+
+                <div class="row mb-3 mt-2">
+          <label
+            for="inputAddress"
+            class="col-sm-12 col-form-label col-form-label-lg"
+            >Address</label
+          >
+          <div class="col-sm-12">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              id="inputAddress"
+              formControlName="address"
+              name="address"
+              placeholder="Address"
+              required
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label
+            for="inputDescription"
+            class="col-sm-12 col-form-label col-form-label-lg"
+            >Order Description</label
+          >
+          <div class="col-sm-12">
+            <textarea
+              rows="5"
+              cols="5"
+              name="orderDescription"
+              id="inputDescription"
+              formControlName="orderDescription"
+              placeholder="Order Description"
+              class="form-control form-control-lg"
+              required
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="row mb-3 mt-2">
+          <label
+            for="inputPayment"
+            class="col-sm-12 col-form-label col-form-label-lg"
+            >Payment</label
+          >
+          <div class="col-sm-12">
+            <select
+              name="payment"
+              id=""
+              formControlName="payment"
+              class="form-control form-control-lg"
+              required
+            >
+              <option *ngFor="let payment of payments" [value]="payment">
+                {{ payment }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="row mx-1 mt-5">
+          <button
+            (click)="placeOrder()"
+            type="submit"
+            class="btn btn-lg mx-auto"
+            [disabled]="!placeOrderForm.valid"
+            style="background: #ca1515"
+          >
+            Add Order
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

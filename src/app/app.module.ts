@@ -17,7 +17,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './components/login/login.component';
 import { CartComponent } from './components/cart/cart.component';
-import { OrdersComponent } from './components/orders/orders.component';
 import { MyordersComponent } from './components/myorders/myorders.component';
 import { UsersComponent } from './components/users/users.component';
 import { MyprofileComponent } from './components/myprofile/myprofile.component';
@@ -28,6 +27,10 @@ import { AddCategoryComponent } from './components/add-category/add-category.com
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UpdateProductComponent } from './components/update-product/update-product.component';
+import { PlaceOrderComponent } from './components/place-order/place-order.component';
+import { ViewOrdersComponent } from './components/view-orders/view-orders.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,6 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     SignupComponent,
     LoginComponent,
     CartComponent,
-    OrdersComponent,
     MyordersComponent,
     UsersComponent,
     MyprofileComponent,
@@ -47,6 +49,9 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     CategoriesComponent,
     AddCategoryComponent,
     AddProductComponent,
+    UpdateProductComponent,
+    PlaceOrderComponent,
+    ViewOrdersComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +64,7 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     FormsModule,
     ReactiveFormsModule,
     ToastrModule,
+    NgbModule,
   ],
   providers: [
     {

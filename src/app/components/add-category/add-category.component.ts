@@ -21,7 +21,6 @@ export class AddCategoryComponent {
   addCategory() {
     this.categoryService.addCategory(this.category).subscribe(
       (res) => {
-        console.log(res);
         this.router.navigateByUrl('categories');
       },
       (err) => {

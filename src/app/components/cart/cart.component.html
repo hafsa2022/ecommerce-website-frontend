@@ -1,1 +1,80 @@
-<p>cart works!</p>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 pt-5 text-center">
+      <h2><strong>Total Amount :</strong> {{ totalAmount }} dh</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-sm-3 pt-5 mb-3">
+        <button
+          class="btn btn-danger"
+          style="border-radius: 2px"
+          (click)="toPlaceOrder()"
+        >
+          <strong>Place Order</strong>
+        </button>
+      </div>
+    </div>
+    <div class="card col-md-12 col-sm-12 pt-2" style="border: none">
+      <div class="card-body">
+        <div class="card mb-3" style="border: none">
+          <div class="card-body">
+            <div class="row g-4">
+              <div
+                class="col-md-3 col-sm-6"
+                *ngFor="let product of cartProducts"
+              >
+                <div class="card" style="border: none">
+                  <div
+                    class="card-body"
+                    style="background-color: #f6bdac; border-radius: 2px"
+                  >
+                    <h5 class="card-title fs-title">
+                      {{ product.productName }}
+                    </h5>
+                    <span class="text-body-secondary">
+                      Price:
+                      <strong>{{
+                        product.price != null
+                          ? product.price + " dh"
+                          : 0 + " dh"
+                      }}</strong>
+                      | Quantity:
+                      <strong>{{ product.quantity }}</strong></span
+                    >
+                  </div>
+                  <div
+                    class="card-footer"
+                    style="
+                      border: none;
+                      display: flex;
+                      justify-content: space-around;
+                      background-color: white;
+                    "
+                  >
+                    <small class="text-body-secondary">
+                      <button
+                        class="btn m-1 btn-sm"
+                        style="border-radius: 50%; background-color: #f6bdac"
+                        (click)="minusProduct(product.productId)"
+                        [disabled]="product.quantity == 1"
+                      >
+                         - 
+                      </button>
+                      <button
+                        class="btn m-1 btn-sm"
+                        style="border-radius: 50%; background-color: #f6bdac"
+                        (click)="addProduct(product.productId)"
+                      >
+                        +
+                      </button>
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Description</th>
+            <th scope="col">Payment</th>
+            <th scope="col">Address</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <th scope="row">{{ order.username }}</th>
+            <th>{{ order.amount }}</th>
+            <td>{{ order.orderDescription }}</td>
+            <td>{{ order.paymentType }}</td>
+            <td>{{ order.address }}</td>
+            <td>{{ order.date | date : "dd/MM/yyyy" }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

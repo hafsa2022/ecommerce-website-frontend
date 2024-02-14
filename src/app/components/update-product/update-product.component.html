@@ -1,0 +1,129 @@
+<div class="container col-4">
+  <h3 class="text-center mb-3 fs-title">Update Product!</h3>
+  <div class="card mt-5">
+    <div class="card-body">
+      <form [formGroup]="updateForm">
+        <!-- <div class="alert alert-danger" [hidden]="!error.errorMessage">
+          {{ error.errorMessage }}
+        </div> -->
+        <div class="row mb-3 mt-2">
+          <div class="col-sm-12">
+            <input
+              type="file"
+              class="form-control form-control-lg"
+              id="inputImage"
+              name="image"
+              (change)="onFileSelected($event)"
+              accept="image/x-png,image/gif,image/jpeg"
+              required
+              placeholder="Change image"
+            />
+          </div>
+        </div>
+        <div
+          class="row mb-3 mt-2"
+          *ngIf="imagePreview"
+          style="display: flex; justify-content: space-around"
+        >
+          <div class="col-sm-12">
+            <img [src]="imagePreview" alt="imagePreview" class="" />
+          </div>
+        </div>
+        <div
+          class="row mb-3 mt-2"
+          *ngIf="existingImage"
+          style="display: flex; justify-content: space-around"
+        >
+          <div class="col-sm-12">
+            <img [src]="existingImage" alt="existingImage" class="" />
+          </div>
+        </div>
+        <div class="row mb-3 mt-2">
+          <label
+            for="inputCategory"
+            class="col-sm-12 col-form-label col-form-label-lg"
+            >Category</label
+          >
+          <div class="col-sm-12">
+            <select
+              name="category"
+              id=""
+              formControlName="categoryId"
+              class="form-control form-control-lg"
+              required
+            >
+              <option *ngFor="let category of categories" [value]="category.id">
+                {{ category.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="row mb-3 mt-2">
+          <label
+            for="inputName"
+            class="col-sm-12 col-form-label col-form-label-lg"
+            >Name</label
+          >
+          <div class="col-sm-12">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              id="inputName"
+              formControlName="name"
+              name="name"
+              required
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label
+            for="inputDescription"
+            class="col-sm-12 col-form-label col-form-label-lg"
+            >Description</label
+          >
+          <div class="col-sm-12">
+            <textarea
+              rows="5"
+              cols="5"
+              name="description"
+              id="inputDescription"
+              formControlName="description"
+              placeholder="Description"
+              class="form-control form-control-lg"
+              required
+            ></textarea>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label
+            for="inputPrice"
+            class="col-sm-12 col-form-label col-form-label-lg"
+            >Price</label
+          >
+          <div class="col-sm-12">
+            <input
+              type="number"
+              name="price"
+              id="inputPrice"
+              formControlName="price"
+              placeholder="Price"
+              class="form-control form-control-lg"
+              required
+            />
+          </div>
+        </div>
+        <div class="row mx-1 mt-5">
+          <button
+            (click)="updateProduct()"
+            type="submit"
+            class="btn btn-lg mx-auto"
+            [disabled]="!updateForm.valid"
+            style="background: #ca1515"
+          >
+            Update Product
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

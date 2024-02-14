@@ -12,6 +12,7 @@ export class AuthService {
   }
 
   signup(data: User) {
+
     return this.http.post(this.baseUrl + 'signup', data);
   }
 

@@ -1,3 +1,5 @@
+import { ViewOrdersComponent } from './components/view-orders/view-orders.component';
+import { UpdateProductComponent } from './components/update-product/update-product.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { CategoriesComponent } from './components/categories/categories.component';
@@ -6,7 +8,6 @@ import { UsersComponent } from './components/users/users.component';
 import { CartComponent } from './components/cart/cart.component';
 import { MyprofileComponent } from './components/myprofile/myprofile.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { OrdersComponent } from './components/orders/orders.component';
 import { AfterLoginService } from './services/after-login.service';
 import { MyordersComponent } from './components/myorders/myorders.component';
 import { LoginComponent } from './components/login/login.component';
@@ -15,6 +16,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PlaceOrderComponent } from './components/place-order/place-order.component';
 
 const routes: Routes = [
   {
@@ -43,6 +45,11 @@ const routes: Routes = [
     canActivate: [AfterLoginService],
   },
   {
+    path: 'products/update-product/:id',
+    component: UpdateProductComponent,
+    canActivate: [AfterLoginService],
+  },
+  {
     path: 'add-product',
     component: AddProductComponent,
     canActivate: [AfterLoginService],
@@ -58,13 +65,18 @@ const routes: Routes = [
     canActivate: [AfterLoginService],
   },
   {
+    path: 'palce-order',
+    component: PlaceOrderComponent,
+    canActivate: [AfterLoginService],
+  },
+  {
     path: 'my-orders',
     component: MyordersComponent,
     canActivate: [AfterLoginService],
   },
   {
     path: 'orders',
-    component: OrdersComponent,
+    component: ViewOrdersComponent,
     canActivate: [AfterLoginService],
   },
   {

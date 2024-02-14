@@ -1,6 +1,6 @@
+import { Router } from '@angular/router';
 import { ProductService } from './../../services/product.service';
 import { Product } from './../../models/Product';
-import { Category } from './../../models/Category';
 import { CategoryService } from './../../services/category.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -28,7 +28,8 @@ export class AddProductComponent implements OnInit {
   file!: File;
   constructor(
     private categoryService: CategoryService,
-    private productService: ProductService
+    private productService: ProductService,
+    private router: Router
   ) {}
   ngOnInit(): void {
     this.getCategories();
@@ -69,7 +70,7 @@ export class AddProductComponent implements OnInit {
     }
     this.productService.addProduct(this.categoryId, formData).subscribe(
       (res) => {
-        console.log(res);
+        this.router.navigateByUrl('products');
       },
       (err) => {
         this.handelError(err);
